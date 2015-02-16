@@ -12,18 +12,11 @@ import com.parse.ParseObject;
 public class MainActivity extends ActionBarActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "vXRp1PCYPUiIP7RHlH9CV8kU9HixQcWj7QSrPKiq", "bHNU0j2IziwrBBQ8HJRr1zzhs1JNVDxIoZrYCXPZ");
 
-
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
 
     }
 

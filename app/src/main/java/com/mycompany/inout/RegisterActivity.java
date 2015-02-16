@@ -28,6 +28,9 @@ public class RegisterActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        // Enable Local Datastore.
+
+
         //initialize
         mUsername = (EditText)findViewById(R.id.usernameRegisterEditText);
         mUserEmail = (EditText)findViewById(R.id.emailRegisterEditText);
@@ -38,16 +41,18 @@ public class RegisterActivity extends Activity {
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 //get username, email, password and convert them to string
                 String username = mUsername.getText().toString().trim();
-                String password = mUserPassword.getText().toString().trim();
                 String email    = mUserEmail.getText().toString().trim();
+                String password = mUserPassword.getText().toString().trim();
 
                 //store user in parse
+
                 ParseUser user = new ParseUser();
                 user.setUsername(username);
-                user.setPassword(password);
                 user.setEmail(email);
+                user.setPassword(password);
                 user.signUpInBackground(new SignUpCallback() {
                     @Override
                     public void done(ParseException e) {
@@ -55,8 +60,10 @@ public class RegisterActivity extends Activity {
                             // success
                             Toast.makeText(RegisterActivity.this, "Success! Welcome",Toast.LENGTH_LONG).show();
 
+
                         } else {
                             // there was an error
+                            Toast.makeText(RegisterActivity.this, "Mai incearca",Toast.LENGTH_LONG).show();
                         }
                     }
                 });

@@ -2,9 +2,7 @@
 <resources>
 
     <string name="app_name">InOut</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_registering">Registering</string>
     <string name="title_activity_register">RegisterActivity</string>
 
 </resources>
