@@ -9,11 +9,18 @@
         <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\classes-33bf2d5a241d588c311d1e6b98d01e4b6a683337.jar" />
     </item>
     <item
-        jar="E:\InOut\app\libs\bolts-android-1.1.4-javadoc.jar"
+        jar="E:\InOut\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="f5dd6492c539679411fa30818320b737c410158f">
-        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\bolts-android-1.1.4-javadoc-413d79c903b383f885e8676abc0d202fa8e93de7.jar" />
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\classes-e559736172952d9f4682300dcb0504a297cac25e.jar" />
+    </item>
+    <item
+        jar="E:\InOut\app\libs\Parse-1.8.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c2cb0bfe37cbefd855b6faa3c9a5be833aba7300">
+        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\Parse-1.8.2-c85a1305f7adb82778bb5f89683a433668ade895.jar" />
     </item>
     <item
         jar="C:\Users\alex\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.4\129874135e6081269ace2312092031558865de12\bolts-android-1.1.4.jar"
@@ -37,32 +44,11 @@
         <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-63fe4ca023f8abde288d7fcf4d787a7c65bac0f0.jar" />
     </item>
     <item
-        jar="E:\InOut\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
-        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\classes-e559736172952d9f4682300dcb0504a297cac25e.jar" />
-    </item>
-    <item
-        jar="E:\InOut\app\libs\ParseCrashReporting-1.8.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="ccf9e90414e7bb2cf09f4d7c77c42f70c690e118">
-        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\ParseCrashReporting-1.8.2-e0a6ef2b42a6c348d08c4c40c5906cf0dfbee7b2.jar" />
-    </item>
-    <item
         jar="E:\InOut\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
         <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-457c915a19eb244d4b131d0cbbfd37b7a260524a.jar" />
-    </item>
-    <item
-        jar="E:\InOut\app\libs\Parse-1.8.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="c2cb0bfe37cbefd855b6faa3c9a5be833aba7300">
-        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\Parse-1.8.2-c85a1305f7adb82778bb5f89683a433668ade895.jar" />
     </item>
 
 </items>

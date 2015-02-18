@@ -1,6 +1,7 @@
 package com.mycompany.inout;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,9 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.parse.Parse;
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
@@ -27,9 +26,6 @@ public class RegisterActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-        // Enable Local Datastore.
-
 
         //initialize
         mUsername = (EditText)findViewById(R.id.usernameRegisterEditText);
@@ -58,7 +54,9 @@ public class RegisterActivity extends Activity {
                     public void done(ParseException e) {
                         if (e == null) {
                             // success
-                            Toast.makeText(RegisterActivity.this, "Success! Welcome",Toast.LENGTH_LONG).show();
+                            //Toast.makeText(RegisterActivity.this, "Success! Welcome",Toast.LENGTH_LONG).show();
+                            Intent takeUserHome = new Intent(RegisterActivity.this, MainActivity.class);
+                            startActivity(takeUserHome);
 
 
                         } else {

@@ -3,7 +3,6 @@ package com.mycompany.inout;
 import android.app.Application;
 
 import com.parse.Parse;
-import com.parse.ParseObject;
 
 public class UseParse extends Application{
 @Override
