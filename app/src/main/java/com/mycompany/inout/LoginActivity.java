@@ -76,8 +76,8 @@ public class LoginActivity extends Activity {
                         mCreateAccountBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent takeUserHome = new Intent(LoginActivity.this, RegisterActivity.class);
-                                startActivity(takeUserHome);
+                                Intent takeUserToRegister = new Intent(LoginActivity.this, RegisterActivity.class);
+                                startActivity(takeUserToRegister);
                             }
                         });
     }

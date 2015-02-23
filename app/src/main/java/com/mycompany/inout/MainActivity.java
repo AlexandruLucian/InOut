@@ -1,17 +1,44 @@
 package com.mycompany.inout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import com.parse.ParseUser;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    protected Button mNewActivity;
 
     @Override
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //initialize
+        mNewActivity=(Button)findViewById(R.id.createActivityBtn);
+
+        //listen to when the createActivityBtn is click
+        mNewActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser != null) {
+            // do stuff with the user
+        } else {
+            // show the signup or login screen
+            Intent takeUserToLoginPage = new Intent(this, LoginActivity.class);
+            startActivity(takeUserToLoginPage);
+        }
 
 
 
@@ -33,8 +60,21 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id){
+            case R.id.action_settings:
+                //take the user to the settings page
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.LogOutStatus:
+                //log out the user
+                ParseUser.logOut();
+                //take user to the login page
+                Intent takeUserToLogin = new Intent(this, LoginActivity.class);
+                startActivity(takeUserToLogin);
+
+                break;
         }
 
         return super.onOptionsItemSelected(item);
