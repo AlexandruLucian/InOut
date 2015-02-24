@@ -33,6 +33,7 @@ public class LoginActivity extends Activity {
         mLoginBtn = (Button)findViewById(R.id.loginBtn);
         mCreateAccountBtn = (Button)findViewById(R.id.createAccountBtnLogin);
 
+
         //listen to when the mLoginBtn is click
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -7,35 +7,57 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 
 public class MainActivity extends ActionBarActivity {
 
-    protected Button mNewActivity;
+     protected Button mImInBtn;
+     protected Button mImOutBtn;
 
     @Override
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //initialize
-        mNewActivity=(Button)findViewById(R.id.createActivityBtn);
 
-        //listen to when the createActivityBtn is click
-        mNewActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        ParseUser currentUser = ParseUser.getCurrentUser();
+        final ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
             // do stuff with the user
+
+            //initialize
+            mImInBtn = (Button)findViewById(R.id.ImInBtn);
+            mImOutBtn = (Button)findViewById(R.id.ImOutBtn);
+
+            //listen to when the ImInBtn is click
+            mImInBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, "Starting the shift!", Toast.LENGTH_LONG).show();
+                    //register the time when the user starts to work
+                    ParseObject startingShift = new ParseObject("StartingShift");
+                    startingShift.put("user", currentUser);
+                    startingShift.saveInBackground();
+
+                }
+            });
+
+            //listen to when the ImOutBtn is click
+            mImOutBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(MainActivity.this, "Finished the shift!", Toast.LENGTH_LONG).show();
+                    //register the time when the user finished working
+                    ParseObject finishingShift = new ParseObject("FinishingShift");
+                    finishingShift.saveInBackground();
+
+                }
+            });
         } else {
-            // show the signup or login screen
+            // show the sing up or login screen
             Intent takeUserToLoginPage = new Intent(this, LoginActivity.class);
             startActivity(takeUserToLoginPage);
         }
