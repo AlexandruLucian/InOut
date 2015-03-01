@@ -25,6 +25,7 @@ public class MainActivity extends ActionBarActivity {
 
 
         final ParseUser currentUser = ParseUser.getCurrentUser();
+
         if (currentUser != null) {
             // do stuff with the user
 
@@ -38,8 +39,11 @@ public class MainActivity extends ActionBarActivity {
                 public void onClick(View v) {
                     Toast.makeText(MainActivity.this, "Starting the shift!", Toast.LENGTH_LONG).show();
                     //register the time when the user starts to work
+                    String currentUserUsername = currentUser.getUsername();
+                    String currentUserId = currentUser.getObjectId();
                     ParseObject startingShift = new ParseObject("StartingShift");
-                    startingShift.put("user", currentUser);
+                    startingShift.put("user", currentUserUsername);
+                    startingShift.put("id_user", currentUserId);
                     startingShift.saveInBackground();
 
                 }
@@ -52,6 +56,7 @@ public class MainActivity extends ActionBarActivity {
                     Toast.makeText(MainActivity.this, "Finished the shift!", Toast.LENGTH_LONG).show();
                     //register the time when the user finished working
                     ParseObject finishingShift = new ParseObject("FinishingShift");
+                    finishingShift.put("user", currentUser);
                     finishingShift.saveInBackground();
 
                 }
@@ -89,13 +94,17 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(intent);
                 break;
 
-            case R.id.LogOutStatus:
+            case R.id.action_log_out:
                 //log out the user
                 ParseUser.logOut();
                 //take user to the login page
                 Intent takeUserToLogin = new Intent(this, LoginActivity.class);
                 startActivity(takeUserToLogin);
-
+                break;
+            case R.id.action_your_hour:
+                //take user to  his hour
+                Intent takeUserToWorkActivity = new Intent(this, WorkActivity.class);
+                startActivity(takeUserToWorkActivity);
                 break;
         }
 

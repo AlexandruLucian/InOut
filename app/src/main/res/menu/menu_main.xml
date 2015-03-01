@@ -7,8 +7,13 @@
           android:orderInCategory="100"
           app:showAsAction="never" />
 
-    <item android:id="@+id/LogOutStatus"
+    <item android:id="@+id/action_log_out"
           android:title="Log Out"
+          android:orderInCategory="100"
+          app:showAsAction="never" />
+
+    <item android:id="@+id/action_your_hour"
+          android:title="Your hour"
           android:orderInCategory="100"
           app:showAsAction="never" />
 

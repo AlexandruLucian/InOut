@@ -51,10 +51,6 @@
             android:name=".SportsActivity"
             android:label="@string/title_activity_sports" >
         </activity>
-        <activity
-            android:name=".NetworkActivity"
-            android:label="@string/title_activity_network" >
-        </activity>
     </application>
 
 </manifest>
