@@ -1,33 +1,37 @@
 package com.mycompany.inout;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.parse.GetCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
-     protected Button mImInBtn;
-     protected Button mImOutBtn;
+    protected Button mImInBtn;
+    protected Button mImOutBtn;
 
     @Override
-        protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         final ParseUser currentUser = ParseUser.getCurrentUser();
 
         if (currentUser != null) {
             // do stuff with the user
+            final String currentUsername = currentUser.getUsername();
+            final String currentUserId = currentUser.getObjectId();
 
             //initialize
             mImInBtn = (Button)findViewById(R.id.ImInBtn);
@@ -39,13 +43,12 @@ public class MainActivity extends ActionBarActivity {
                 public void onClick(View v) {
                     Toast.makeText(MainActivity.this, "Starting the shift!", Toast.LENGTH_LONG).show();
                     //register the time when the user starts to work
-                    String currentUserUsername = currentUser.getUsername();
-                    String currentUserId = currentUser.getObjectId();
-                    ParseObject startingShift = new ParseObject("StartingShift");
-                    startingShift.put("user", currentUserUsername);
-                    startingShift.put("id_user", currentUserId);
-                    startingShift.saveInBackground();
+                    ParseObject shiftObject = new ParseObject("Shift");
+                    shiftObject.put("id_user", currentUserId);
+                    shiftObject.put("user", currentUsername);
+                    shiftObject.put("start", System.currentTimeMillis());
 
+                    shiftObject.saveInBackground();
                 }
             });
 
@@ -53,21 +56,26 @@ public class MainActivity extends ActionBarActivity {
             mImOutBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(MainActivity.this, "Finished the shift!", Toast.LENGTH_LONG).show();
-                    //register the time when the user finished working
-                    ParseObject finishingShift = new ParseObject("FinishingShift");
-                    finishingShift.put("user", currentUser);
-                    finishingShift.saveInBackground();
+                    Toast.makeText(MainActivity.this, "Finish the shift!", Toast.LENGTH_LONG).show();
+                    //register the time when the user finish to work
+                    ParseQuery<ParseObject> query = ParseQuery.getQuery("Shift");
+                    query.whereEqualTo("id_user", currentUserId);
+                    query.getFirstInBackground(new GetCallback<ParseObject>() {
+                        public void done(ParseObject shiftObject, ParseException e) {
+                            shiftObject.put("finish", System.currentTimeMillis());
+                            shiftObject.saveInBackground();
+                        }
+                    });
 
-                }
-            });
+                        }
+                    });
+
+
         } else {
             // show the sing up or login screen
             Intent takeUserToLoginPage = new Intent(this, LoginActivity.class);
             startActivity(takeUserToLoginPage);
         }
-
-
 
     }
 
@@ -101,6 +109,7 @@ public class MainActivity extends ActionBarActivity {
                 Intent takeUserToLogin = new Intent(this, LoginActivity.class);
                 startActivity(takeUserToLogin);
                 break;
+
             case R.id.action_your_hour:
                 //take user to  his hour
                 Intent takeUserToWorkActivity = new Intent(this, WorkActivity.class);
