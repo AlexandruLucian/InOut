@@ -9,17 +9,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.parse.GetCallback;
+import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import java.util.List;
 
 
 public class MainActivity extends Activity {
 
     protected Button mImInBtn;
     protected Button mImOutBtn;
+    ParseObject shift;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,46 +32,55 @@ public class MainActivity extends Activity {
         final ParseUser currentUser = ParseUser.getCurrentUser();
 
         if (currentUser != null) {
-            // do stuff with the user
-            final String currentUsername = currentUser.getUsername();
-            final String currentUserId = currentUser.getObjectId();
+                // do stuff with the user
+                final String currentUsername = currentUser.getUsername();
+                final String currentUserId = currentUser.getObjectId();
 
-            //initialize
-            mImInBtn = (Button)findViewById(R.id.ImInBtn);
-            mImOutBtn = (Button)findViewById(R.id.ImOutBtn);
+                //initialize
+                mImInBtn = (Button)findViewById(R.id.ImInBtn);
+                mImOutBtn = (Button)findViewById(R.id.ImOutBtn);
 
-            //listen to when the ImInBtn is click
-            mImInBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(MainActivity.this, "Starting the shift!", Toast.LENGTH_LONG).show();
-                    //register the time when the user starts to work
-                    ParseObject shiftObject = new ParseObject("Shift");
-                    shiftObject.put("id_user", currentUserId);
-                    shiftObject.put("user", currentUsername);
-                    shiftObject.put("start", System.currentTimeMillis());
+                //listen to when the ImInBtn is click
+                mImInBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity.this, "Starting the shift!", Toast.LENGTH_LONG).show();
+                        //register the time when the user starts to work
 
-                    shiftObject.saveInBackground();
-                }
-            });
+                        ParseObject shiftObject = new ParseObject("Shift");
+                        shiftObject.put("userId", currentUserId);
+                        shiftObject.put("user", currentUsername);
+                        shiftObject.put("start", System.currentTimeMillis());
+                        shiftObject.saveInBackground();
+                    }
+                });
 
-            //listen to when the ImOutBtn is click
-            mImOutBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(MainActivity.this, "Finish the shift!", Toast.LENGTH_LONG).show();
-                    //register the time when the user finish to work
-                    ParseQuery<ParseObject> query = ParseQuery.getQuery("Shift");
-                    query.whereEqualTo("id_user", currentUserId);
-                    query.getFirstInBackground(new GetCallback<ParseObject>() {
-                        public void done(ParseObject shiftObject, ParseException e) {
-                            shiftObject.put("finish", System.currentTimeMillis());
-                            shiftObject.saveInBackground();
-                        }
-                    });
+                //listen to when the ImOutBtn is click
+                mImOutBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(MainActivity.this, "Finish the shift!", Toast.LENGTH_LONG).show();
+                        //register the time when the user finish to work
 
-                        }
-                    });
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Shift");
+                        query.whereEqualTo("userId", currentUserId);
+                        query.orderByDescending("objectId");
+                        query.findInBackground(new FindCallback<ParseObject>() {
+                            @Override
+                            public void done(List<ParseObject> shiftList, ParseException e) {
+                                if (e != null || shiftList.size() > 0) {
+                                    shift = shiftList.get(0);
+                                    shift.put("finish",System.currentTimeMillis());
+                                    shift.saveInBackground();
+                                } else if (shiftList.size() == 0){
+                                    Toast.makeText(MainActivity.this, "No shift found!",Toast.LENGTH_LONG).show();
+                                }
+
+                            }
+                        });
+
+                    }
+                });
 
 
         } else {
