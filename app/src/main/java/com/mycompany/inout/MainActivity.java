@@ -15,6 +15,9 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import org.joda.time.DateTime;
+import org.joda.time.Interval;
+
 import java.util.List;
 
 
@@ -23,6 +26,8 @@ public class MainActivity extends Activity {
     protected Button mImInBtn;
     protected Button mImOutBtn;
     ParseObject shift;
+    DateTime start;
+    DateTime finish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +51,11 @@ public class MainActivity extends Activity {
                     public void onClick(View v) {
                         Toast.makeText(MainActivity.this, "Starting the shift!", Toast.LENGTH_LONG).show();
                         //register the time when the user starts to work
-
+                        start = new DateTime();
                         ParseObject shiftObject = new ParseObject("Shift");
                         shiftObject.put("userId", currentUserId);
                         shiftObject.put("user", currentUsername);
-                        shiftObject.put("start", System.currentTimeMillis());
+                        shiftObject.put("start", start.toString("HH:mm"));
                         shiftObject.saveInBackground();
                     }
                 });
@@ -61,16 +66,19 @@ public class MainActivity extends Activity {
                     public void onClick(View v) {
                         Toast.makeText(MainActivity.this, "Finish the shift!", Toast.LENGTH_LONG).show();
                         //register the time when the user finish to work
-
+                        //obtain from db last shift registered
                         ParseQuery<ParseObject> query = ParseQuery.getQuery("Shift");
                         query.whereEqualTo("userId", currentUserId);
-                        query.orderByDescending("objectId");
+                        query.orderByDescending("createdAt");
                         query.findInBackground(new FindCallback<ParseObject>() {
                             @Override
                             public void done(List<ParseObject> shiftList, ParseException e) {
                                 if (e != null || shiftList.size() > 0) {
                                     shift = shiftList.get(0);
-                                    shift.put("finish",System.currentTimeMillis());
+                                    finish = new DateTime();
+                                    shift.put("finish",finish.toString("HH:mm"));
+                                    Interval duration = new Interval(start, finish);
+                                    shift.put("duration", duration.toString());
                                     shift.saveInBackground();
                                 } else if (shiftList.size() == 0){
                                     Toast.makeText(MainActivity.this, "No shift found!",Toast.LENGTH_LONG).show();
@@ -106,28 +114,28 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        switch (id){
-            case R.id.action_settings:
-                //take the user to the settings page
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivity(intent);
-                break;
+           //noinspection SimplifiableIfStatement
+           switch (id){
+                case R.id.action_settings:
+                    //take the user to the settings page
+                    Intent intent = new Intent(this, SettingsActivity.class);
+                    startActivity(intent);
+                    break;
 
-            case R.id.action_log_out:
-                //log out the user
-                ParseUser.logOut();
-                //take user to the login page
-                Intent takeUserToLogin = new Intent(this, LoginActivity.class);
-                startActivity(takeUserToLogin);
-                break;
+                case R.id.action_log_out:
+                    //log out the user
+                    ParseUser.logOut();
+                    //take user to the login page
+                    Intent takeUserToLogin = new Intent(this, LoginActivity.class);
+                    startActivity(takeUserToLogin);
+                    break;
 
-            case R.id.action_your_hour:
-                //take user to  his hour
-                Intent takeUserToWorkActivity = new Intent(this, WorkActivity.class);
-                startActivity(takeUserToWorkActivity);
-                break;
-        }
+                case R.id.action_your_hour:
+                    //take user to  his hour
+                    Intent takeUserToWorkActivity = new Intent(this, WorkActivity.class);
+                    startActivity(takeUserToWorkActivity);
+                    break;
+           }
 
         return super.onOptionsItemSelected(item);
     }

@@ -9,20 +9,6 @@
         <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\classes-33bf2d5a241d588c311d1e6b98d01e4b6a683337.jar" />
     </item>
     <item
-        jar="E:\InOut\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
-        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\classes-e559736172952d9f4682300dcb0504a297cac25e.jar" />
-    </item>
-    <item
-        jar="E:\InOut\app\libs\Parse-1.8.2.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="c2cb0bfe37cbefd855b6faa3c9a5be833aba7300">
-        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\Parse-1.8.2-c85a1305f7adb82778bb5f89683a433668ade895.jar" />
-    </item>
-    <item
         jar="C:\Users\alex\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.4\129874135e6081269ace2312092031558865de12\bolts-android-1.1.4.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -42,6 +28,48 @@
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
         <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-63fe4ca023f8abde288d7fcf4d787a7c65bac0f0.jar" />
+    </item>
+    <item
+        jar="E:\InOut\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\classes-e559736172952d9f4682300dcb0504a297cac25e.jar" />
+    </item>
+    <item
+        jar="E:\InOut\app\libs\joda-time-2.7-sources.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1fc633cf2a3f5a1767ef28b81ebc5d0ecfa1ffda">
+        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\joda-time-2.7-sources-c98308d8df1f6a435de598aadbaf2bef7d4c21aa.jar" />
+    </item>
+    <item
+        jar="E:\InOut\app\libs\joda-time-2.7-no-tzdb.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b321fd17a60912973a8344da427487c65ccbb552">
+        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\joda-time-2.7-no-tzdb-50da0e8160c3cb7adcc85dd6b51b995ae915c913.jar" />
+    </item>
+    <item
+        jar="E:\InOut\app\libs\joda-time-2.7-javadoc.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="351cade78537f39873934beb5dd605fa2e71b947">
+        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\joda-time-2.7-javadoc-0090a769e15e29de4a9d5986f335c1335b4e3938.jar" />
+    </item>
+    <item
+        jar="E:\InOut\app\libs\joda-time-2.7.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5599707a3eaad13e889f691b3af78c8c03842195">
+        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\joda-time-2.7-58a7450c41ee8170177c23eecd7888d55d0f64ae.jar" />
+    </item>
+    <item
+        jar="E:\InOut\app\libs\Parse-1.8.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c2cb0bfe37cbefd855b6faa3c9a5be833aba7300">
+        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\Parse-1.8.2-c85a1305f7adb82778bb5f89683a433668ade895.jar" />
     </item>
     <item
         jar="E:\InOut\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
