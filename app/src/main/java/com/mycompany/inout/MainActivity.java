@@ -16,7 +16,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import org.joda.time.DateTime;
-import org.joda.time.Interval;
+import org.joda.time.Duration;
 
 import java.util.List;
 
@@ -77,8 +77,9 @@ public class MainActivity extends Activity {
                                     shift = shiftList.get(0);
                                     finish = new DateTime();
                                     shift.put("finish",finish.toString("HH:mm"));
-                                    Interval duration = new Interval(start, finish);
-                                    shift.put("duration", duration.toString());
+                                    Duration duration = new Duration(start, finish);
+                                    //Long duration = dt.getStandardMinutes();
+                                    shift.put("duration", duration.getStandardHours());
                                     shift.saveInBackground();
                                 } else if (shiftList.size() == 0){
                                     Toast.makeText(MainActivity.this, "No shift found!",Toast.LENGTH_LONG).show();

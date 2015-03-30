@@ -16,9 +16,9 @@
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:hint="Enter date"
+        android:hint="dd/mm/yyyy"
         android:textColorHint="@color/wallet_holo_blue_light"
-        android:id="@+id/editText"
+        android:id="@+id/startDateEditText"
         android:gravity="center"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -29,7 +29,7 @@
         android:id="@+id/editText2"
         android:text="to"
         android:gravity="center"
-        android:layout_below="@+id/editText"
+        android:layout_below="@+id/startDateEditText"
         android:layout_centerHorizontal="true" />
 
     <EditText
@@ -37,21 +37,21 @@
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:hint="Enter date"
+        android:hint="dd/mm/yyyy"
         android:textColorHint="@color/wallet_holo_blue_light"
-        android:id="@+id/editText3"
+        android:id="@+id/endDateEditText"
         android:gravity="center"
         android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:layout_alignLeft="@+id/startDateEditText"
+        android:layout_alignStart="@+id/startDateEditText" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
-        android:id="@+id/button"
-        android:layout_below="@+id/editText3"
-        android:layout_alignRight="@+id/editText3"
-        android:layout_alignEnd="@+id/editText3" />
+        android:text="Calculate"
+        android:id="@+id/calculateBtn"
+        android:layout_below="@+id/endDateEditText"
+        android:layout_alignRight="@+id/endDateEditText"
+        android:layout_alignEnd="@+id/endDateEditText" />
 
 </RelativeLayout>

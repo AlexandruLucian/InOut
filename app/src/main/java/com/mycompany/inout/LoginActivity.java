@@ -31,7 +31,7 @@ public class LoginActivity extends Activity {
         mUsername = (EditText)findViewById(R.id.usernameLoginEditText);
         mPassword = (EditText)findViewById(R.id.passwordLoginEditText);
         mLoginBtn = (Button)findViewById(R.id.loginBtn);
-        mCreateAccountBtn = (Button)findViewById(R.id.createAccountBtnLogin);
+        mCreateAccountBtn = (Button)findViewById(R.id.createAccountBtn);
 
 
         //listen to when the mLoginBtn is click
