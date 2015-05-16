@@ -9,5 +9,7 @@
     <string name="title_activity_work">WorkActivity</string>
     <string name="title_activity_sports">SportsActivity</string>
     <string name="title_activity_network">NetworkActivity</string>
+    <string name="from_date">From Date</string>
+    <string name="to_date">To Date</string>
 
 </resources>

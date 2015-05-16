@@ -1,4 +1,4 @@
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,38 +12,19 @@
 
 
     <EditText
-        android:layout_width="wrap_content"
+        android:id="@+id/fromDateEditText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:hint="dd/mm/yyyy"
-        android:textColorHint="@color/wallet_holo_blue_light"
-        android:id="@+id/startDateEditText"
-        android:gravity="center"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_weight=".5"
+        android:hint="@string/from_date" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:text="to"
-        android:gravity="center"
-        android:layout_below="@+id/startDateEditText"
-        android:layout_centerHorizontal="true" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:id="@+id/toDateEditText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:hint="dd/mm/yyyy"
-        android:textColorHint="@color/wallet_holo_blue_light"
-        android:id="@+id/endDateEditText"
-        android:gravity="center"
-        android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/startDateEditText"
-        android:layout_alignStart="@+id/startDateEditText" />
+        android:layout_weight=".5"
+        android:hint="@string/to_date" />
 
     <Button
         android:layout_width="wrap_content"
@@ -54,4 +35,4 @@
         android:layout_alignRight="@+id/endDateEditText"
         android:layout_alignEnd="@+id/endDateEditText" />
 
-</RelativeLayout>
+</LinearLayout>

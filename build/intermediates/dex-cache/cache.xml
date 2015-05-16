@@ -9,13 +9,6 @@
         <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\classes-33bf2d5a241d588c311d1e6b98d01e4b6a683337.jar" />
     </item>
     <item
-        jar="C:\Users\alex\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.1.4\129874135e6081269ace2312092031558865de12\bolts-android-1.1.4.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="129874135e6081269ace2312092031558865de12">
-        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\bolts-android-1.1.4-50f088f9d16561298600ba61f2d59deab2dce1d6.jar" />
-    </item>
-    <item
         jar="E:\InOut\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -37,27 +30,6 @@
         <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\classes-e559736172952d9f4682300dcb0504a297cac25e.jar" />
     </item>
     <item
-        jar="E:\InOut\app\libs\joda-time-2.7-sources.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="1fc633cf2a3f5a1767ef28b81ebc5d0ecfa1ffda">
-        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\joda-time-2.7-sources-c98308d8df1f6a435de598aadbaf2bef7d4c21aa.jar" />
-    </item>
-    <item
-        jar="E:\InOut\app\libs\joda-time-2.7-no-tzdb.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="b321fd17a60912973a8344da427487c65ccbb552">
-        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\joda-time-2.7-no-tzdb-50da0e8160c3cb7adcc85dd6b51b995ae915c913.jar" />
-    </item>
-    <item
-        jar="E:\InOut\app\libs\joda-time-2.7-javadoc.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="351cade78537f39873934beb5dd605fa2e71b947">
-        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\joda-time-2.7-javadoc-0090a769e15e29de4a9d5986f335c1335b4e3938.jar" />
-    </item>
-    <item
         jar="E:\InOut\app\libs\joda-time-2.7.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -77,6 +49,13 @@
         revision="21.1.2"
         sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
         <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-457c915a19eb244d4b131d0cbbfd37b7a260524a.jar" />
+    </item>
+    <item
+        jar="C:\Users\alex\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-android\1.2.0\6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd\bolts-android-1.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="E:\InOut\app\build\intermediates\pre-dexed\debug\bolts-android-1.2.0-398179d06be0aa1e7cb087d0783a0718a9b4bbb6.jar" />
     </item>
 
 </items>
