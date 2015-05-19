@@ -1,10 +1,10 @@
 package com.mycompany.inout;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +16,7 @@ import com.parse.LogInCallback;
 import com.parse.ParseUser;
 
 
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends Activity {
     protected EditText mUsername;
     protected EditText mPassword;
     protected Button mLoginBtn;
